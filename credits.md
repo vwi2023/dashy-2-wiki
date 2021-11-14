@@ -6,7 +6,7 @@
 <tr>
     <td align="center">
         <a href="https://github.com/mfnalex">
-            <img src="https://avatars.githubusercontent.com/u/1122571?v=4" width="80;" alt="mfnalex"/>
+            <img src="https://avatars.githubusercontent.com/u/1122571?u=5503223f5a5077197ddc229a938a5c3120a276ce&v=4" width="80;" alt="mfnalex"/>
             <br />
             <sub><b>Mfnalex</b></sub>
         </a>
@@ -16,6 +16,13 @@
             <img src="https://avatars.githubusercontent.com/u/9050259?u=7253b4063f1ffe3b5a894263c8b2056151802508&v=4" width="80;" alt="Robert-Ernst"/>
             <br />
             <sub><b>Robert Ernst</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/DylanBeMe">
+            <img src="https://avatars.githubusercontent.com/u/41838333?v=4" width="80;" alt="DylanBeMe"/>
+            <br />
+            <sub><b>DylanH</b></sub>
         </a>
     </td></tr>
 </table>
@@ -33,17 +40,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/EVOTk">
-            <img src="https://avatars.githubusercontent.com/u/45015615?v=4" width="80;" alt="EVOTk"/>
-            <br />
-            <sub><b>EVOTk</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/liss-bot">
             <img src="https://avatars.githubusercontent.com/u/87835202?v=4" width="80;" alt="liss-bot"/>
             <br />
             <sub><b>Alicia Bot</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/EVOTk">
+            <img src="https://avatars.githubusercontent.com/u/45015615?v=4" width="80;" alt="EVOTk"/>
+            <br />
+            <sub><b>EVOTk</b></sub>
         </a>
     </td>
     <td align="center">
@@ -112,6 +119,13 @@
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/Compunctus">
+            <img src="https://avatars.githubusercontent.com/u/5058853?v=4" width="80;" alt="Compunctus"/>
+            <br />
+            <sub><b>Iaroslav Dronskii</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/rubjo">
             <img src="https://avatars.githubusercontent.com/u/42270947?v=4" width="80;" alt="rubjo"/>
             <br />
@@ -124,13 +138,27 @@
             <br />
             <sub><b>Ryan Turner</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/royshreyaaa">
+            <img src="https://avatars.githubusercontent.com/u/88572557?v=4" width="80;" alt="royshreyaaa"/>
+            <br />
+            <sub><b>Shreya Roy</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/jnach">
+            <img src="https://avatars.githubusercontent.com/u/33467747?v=4" width="80;" alt="jnach"/>
+            <br />
+            <sub><b>Jnach</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
 
 
 ### Helpful Users
-<!-- readme: EVOTk,shadowking001,jhelmink,Robert-Ernst,MilesTEG1,lu4t -start -->
+<!-- readme: EVOTk,shadowking001,UrekD,DylanBeMe,MilesTEG1,lu4t -start -->
 <table>
 <tr>
     <td align="center">
@@ -148,17 +176,17 @@
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/jhelmink">
-            <img src="https://avatars.githubusercontent.com/u/4581673?v=4" width="80;" alt="jhelmink"/>
+        <a href="https://github.com/urekd">
+            <img src="https://avatars.githubusercontent.com/u/38784343?v=4" width="80;" alt="urekd"/>
             <br />
-            <sub><b>Josh</b></sub>
+            <sub><b>Urekd</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/robert-ernst">
-            <img src="https://avatars.githubusercontent.com/u/9050259?v=4" width="80;" alt="robert-ernst"/>
+        <a href="https://github.com/dylanbeme">
+            <img src="https://avatars.githubusercontent.com/u/41838333?v=4" width="80;" alt="dylanbeme"/>
             <br />
-            <sub><b>Robert Ernst</b></sub>
+            <sub><b>DylanH</b></sub>
         </a>
     </td>
     <td align="center">
@@ -176,7 +204,7 @@
         </a>
     </td></tr>
 </table>
-<!-- readme: EVOTk,shadowking001,jhelmink,Robert-Ernst,MilesTEG1,lu4t -end -->
+<!-- readme: EVOTk,shadowking001,UrekD,DylanBeMe,MilesTEG1,lu4t -end -->
 
 ### Bots
 <!-- readme: liss-bot,snyk-bot,netlify,viezly,muse-dev,bots -start -->
