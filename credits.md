@@ -154,6 +154,13 @@
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/b1thunt3r">
+            <img src="https://avatars.githubusercontent.com/u/791091?v=4" width="80;" alt="b1thunt3r"/>
+            <br />
+            <sub><b>Ishan Jain</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/KierenConnell">
             <img src="https://avatars.githubusercontent.com/u/46445781?v=4" width="80;" alt="KierenConnell"/>
             <br />
@@ -166,15 +173,15 @@
             <br />
             <sub><b>Rubjo</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/turnrye">
             <img src="https://avatars.githubusercontent.com/u/701035?v=4" width="80;" alt="turnrye"/>
             <br />
             <sub><b>Ryan Turner</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/royshreyaaa">
             <img src="https://avatars.githubusercontent.com/u/88572557?v=4" width="80;" alt="royshreyaaa"/>
@@ -320,6 +327,7 @@ At it's core, the application uses [**Vue.js**](https://github.com/vuejs/vue), a
 - [`axios`](https://github.com/axios/axios) - Promise based HTTP client by @mzabriskie and community `MIT`
 - [`ajv`](https://github.com/ajv-validator/ajv) - JSON schema Validator by @epoberezkin and community `MIT`
 - [`i18n`](https://github.com/kazupon/vue-i18n) - Internationalization plugin by @kazupon and community `MIT`
+- [`frappe-charts`](https://github.com/frappe/charts) - Lightweight charting library by @frappe `MIT`
 
 #### Frontend Components
 - [`vue-select`](https://github.com/sagalbot/vue-select) - Dropdown component by @sagalbot `MIT`
