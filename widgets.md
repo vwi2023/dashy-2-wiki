@@ -56,6 +56,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Network Interfaces](#network-interfaces)
   - [Network Traffic](#network-traffic)
   - [Resource Usage Alerts](#resource-usage-alerts)
+  - [Public & Private IP](#ip-address)
 - **[Dynamic Widgets](#dynamic-widgets)**
   - [Iframe Widget](#iframe-widget)
   - [HTML Embed Widget](#html-embedded-widget)
@@ -72,6 +73,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Widget UI Options](#widget-ui-options)
   - [Building a Widget](#build-your-own-widget)
   - [Requesting a Widget](#requesting-a-widget)
+  - [Troubleshooting](#troubleshooting-widget-errors)
 
 ## General Widgets
 
@@ -209,13 +211,17 @@ Display news and updates from any RSS-enabled service.
 
 ### Public IP
 
-Often find yourself searching "What's my IP", just so you can check your VPN is still connected? This widget displays your public IP address, along with ISP name and approx location. Data is fetched from [IP-API.com](https://ip-api.com/).
+Often find yourself searching "What's my IP", just so you can check your VPN is still connected? This widget displays your public IP address, along with ISP name and approx location. Data can be fetched from either [IpApi.co](https://ipapi.co/), [IP-API.com](https://ip-api.com/) or [IpGeolocation.io](https://ipgeolocation.io/).
 
 <p align="center"><img width="400" src="https://i.ibb.co/vc3c8zN/public-ip.png" /></p>
 
 ##### Options
+_All fields are optional_
 
-_No config options._
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`provider`** | `string` |  _Optional_ | The name of the service to fetch IP address from. Can be either `ipapi.co`, `ip-api` or `ipgeolocation`. Defaults to `ipapi.co`. Note, `ip-api` doesn't work on HTTPS, and if you set to `ipgeolocation` then you must also provide an API key
+**`apiKey`** | `string` |  _Optional_ | Only required if provider is set to `ipgeolocation`. You can get a free API key [here](https://ipgeolocation.io/signup.html)
 
 ##### Example 
 
@@ -223,12 +229,21 @@ _No config options._
 - type: public-ip
 ```
 
+Or
+
+```yaml
+- type: public-ip
+  options:
+    provider: ipgeolocation
+    apiKey: xxxxxxxxxxxxxxx
+```
+
 ##### Info
 - **CORS**: 🟢 Enabled
 - **Auth**: 🟠 Optional
 - **Price**: 🟢 Free
 - **Host**: Managed Instance Only
-- **Privacy**: _See [IP-API Privacy Policy](https://ip-api.com/docs/legal)_
+- **Privacy**: _See [IPGeoLocation Privacy Policy](https://ipgeolocation.io/privacy.html) or [IP-API Privacy Policy](https://ip-api.com/docs/legal)_
 
 ---
 
@@ -1457,6 +1472,22 @@ Lists recent high resource usage alerts (e.g. CPU, mem, IO, load, temp)
 
 ---
 
+### IP Address
+
+Shows public and private IP address. Note that the ip plugin is not available on all instances of Glances.
+
+<p align="center"><img width="400" src="https://i.ibb.co/ZhXBxZr/gl-ip-address.png" /></p>
+
+##### Example 
+
+```yaml
+- type: gl-ip-address
+  options:
+    hostname: http://192.168.130.2:61208
+```
+
+---
+
 ## Dynamic Widgets
 
 ### Iframe Widget
@@ -1706,3 +1737,53 @@ Please only request widgets for services that:
 - Would be useful for other users
 
 For services that are not officially supported, it is likely still possible to display data using either the [iframe](#iframe-widget), [embed](#html-embedded-widget) or [API response](#api-response) widgets. For more advanced features, like charts and action buttons, you could also build your own widget, using [this tutorial](/docs/development-guides.md#building-a-widget), it's fairly straight forward, and you can use an [existing widget](https://github.com/Lissy93/dashy/tree/master/src/components/Widgets) (or [this example](https://git.io/JygKI)) as a template.
+
+---
+
+### Troubleshooting Widget Errors
+
+If an error occurs when fetching or rendering results, you will see a short message in the UI. If that message doesn't addequatley explain the problem, then you can [open the browser console](/docs/troubleshooting.md#how-to-open-browser-console) to see more details.
+
+Before proceeding, ensure that if the widget requires auth your API is correct, and for custom widgets, double check that the URL and protocol is correct.
+
+If you're able to, you can find more information about why the request may be failing in the Dev Tools under the Network tab, and you can ensure your endpoint is correct and working using a tool like Postman.
+
+#### CORS Errors
+
+The most common issue is a CORS error. This is a browser security mechanism which prevents the client-side app (Dashy) from from accessing resources on a remote origin, without that server's explicit permission (e.g. with headers like Access-Control-Allow-Origin). See the MDN Docs for more info: [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+There are several ways to fix a CORS error:
+
+##### Option 1 - Ensure Correct Protocol
+You will get a CORS error if you try and access a http service from a https source. So ensure that the URL you are requesting has the right protocol, and is correctly formatted.
+
+##### Option 2 - Set Headers
+
+If you have control over the destination (e.g. for a self-hosted service), then you can simply apply the correct headers.
+Add the `Access-Control-Allow-Origin` header, with the value of either `*` to allow requests from anywhere, or more securely, the host of where Dashy is served from. For example:
+
+```
+Access-Control-Allow-Origin: https://url-of-dashy.local
+```
+
+or
+
+```
+Access-Control-Allow-Origin: *
+```
+
+##### Option 3 - Proxying Request
+
+You can route requests through Dashy's built-in CORS proxy. Instructions and more details can be found [here](#proxying-requests). If you don't have control over the target origin, and you are running Dashy either through Docker, with the Node server or on Netlify, then this solution will work for you.
+
+Just add the `useProxy: true` option to the failing widget.
+
+##### Option 4 - Use a plugin
+
+For testing purposes, you can use an addon, which will disable the CORS checks. You can get the Allow-CORS extension for [Chrome](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en-US) or [Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-control-allow-origin/), more details [here](https://mybrowseraddon.com/access-control-allow-origin.html)
+
+---
+
+### Raising an Issue
+
+If you need to submit a bug report for a failing widget, then please include the full console output (see [how](/docs/troubleshooting.md#how-to-open-browser-console)) as well as the relevant parts of your config file. Before sending the request, ensure you've read the docs. If you're new to GitHub, an haven't previously contributed to the project, then please fist star the repo to avoid your ticket being closed by the anti-spam bot.
