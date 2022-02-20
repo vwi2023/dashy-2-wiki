@@ -12,6 +12,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Weather](#weather)
   - [Weather Forecast](#weather-forecast)
   - [RSS Feed](#rss-feed)
+  - [Image](#image)
   - [Public IP Address](#public-ip)
   - [Crypto Watch List](#crypto-watch-list)
   - [Crypto Price History](#crypto-token-price-history)
@@ -57,6 +58,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Network Traffic](#network-traffic)
   - [Resource Usage Alerts](#resource-usage-alerts)
   - [Public & Private IP](#ip-address)
+  - [CPU Temperature](#cpu-temp)
 - **[Dynamic Widgets](#dynamic-widgets)**
   - [Iframe Widget](#iframe-widget)
   - [HTML Embed Widget](#html-embedded-widget)
@@ -206,6 +208,41 @@ Display news and updates from any RSS-enabled service.
 - **Auth**: 🟠 Optional
 - **Price**: 🟠 Free Plan (up to 10,000 requests / day)
 - **Privacy**: _See [Rss2Json Privacy Policy](https://rss2json.com/privacy-policy)_
+
+---
+
+### Image
+
+Displays an image.
+
+This may be useful if you have a service (such as Grafana - [see example](https://mattionline.de/grafana-api-export-graph-as-png/)), which periodically exports charts or other data as an image.
+
+You can also store images within Dashy's public directory (using a Docker volume), and reference them directly. E.g. `-v ./path/to/my-homelab-logo.png:/app/public/logo.png`, then in the widget `imagePath: /logo.png`.
+
+Similarly, any web service that serves up widgets as image can be used. E.g. you could show current star chart for a GitHub repo, with: `imagePath: https://starchart.cc/Lissy93/dashy.svg`.
+
+If you'd like to embed a live screenshot, of all or just part of a website, then this can be done using [API Flash](https://apiflash.com/).
+
+Or what about showing a photo of the day? Try `https://source.unsplash.com/random/400x300` or `https://picsum.photos/400/300`
+
+<p align="center"><img width="300" src="https://i.ibb.co/P48Y443/image-widget.png" /></p>
+
+##### Options
+
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`imagePath`** | `string` |  Required | The path (local or remote) of the image to display
+
+##### Example 
+
+```yaml
+- type: image
+  options:
+    imagePath: https://i.ibb.co/yhbt6CY/dashy.png
+```
+
+##### Info
+Unless image fetched from remote source, no external data request is made.
 
 ---
 
@@ -1488,6 +1525,25 @@ Shows public and private IP address. Note that the ip plugin is not available on
 
 ---
 
+### CPU Temp
+
+Displays temperature data from system CPUs.
+
+Note: This widget uses the [`sensors`](https://github.com/nicolargo/glances/blob/develop/glances/plugins/glances_sensors.py) plugin, which is disabled by default, and may cause [performance issues](https://github.com/nicolargo/glances/issues/1664#issuecomment-632063558).
+You'll need to enable the sensors plugin to use this widget, using: `--enable-plugin sensors` when you start Glances.
+
+<p align="center"><img width="400" src="https://i.ibb.co/xSs4Gqd/gl-cpu-temp.png" /></p>
+
+##### Example 
+
+```yaml
+- type: gl-cpu-temp
+  options:
+    hostname: http://192.168.130.2:61208
+```
+
+---
+
 ## Dynamic Widgets
 
 ### Iframe Widget
@@ -1554,6 +1610,14 @@ Or
       css: '.coinmarketcap-currency-widget { color: var(--widget-text-color); }'
       html: '<div class="coinmarketcap-currency-widget" data-currencyid="1" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>'
       scriptSrc: 'https://files.coinmarketcap.com/static/widget/currency.js'
+```
+
+You can also use this widget to display an image, wither locally or from a remote origin.
+
+```yaml
+- type: embed
+  options:
+    html: '<img src="https://dashy.lan/item-icons/my-image.png" />'
 ```
 
 ---
@@ -1727,14 +1791,14 @@ Alternatively, for displaying simple data, you could also just use the either th
 
 Suggestions for widget ideas are welcome. But there is no guarantee that I will build your widget idea.
 
-You can suggest a widget [here](https://git.io/Jygo3), please star the repo before submitting a ticket.
-
 Please only request widgets for services that:
 - Have a publicly accessible API
 - Are CORS and HTTPS enabled
 - Are free to use, or have a free plan
 - Allow for use in their Terms of Service
 - Would be useful for other users
+
+You can suggest a widget [here](https://git.io/Jygo3), please star the repo before submitting a ticket. If you are a monthly GitHub sponsor, I will happily build out a custom widget for any service that meets the above criteria, usually 2 within weeks of initial request.
 
 For services that are not officially supported, it is likely still possible to display data using either the [iframe](#iframe-widget), [embed](#html-embedded-widget) or [API response](#api-response) widgets. For more advanced features, like charts and action buttons, you could also build your own widget, using [this tutorial](/docs/development-guides.md#building-a-widget), it's fairly straight forward, and you can use an [existing widget](https://github.com/Lissy93/dashy/tree/master/src/components/Widgets) (or [this example](https://git.io/JygKI)) as a template.
 
