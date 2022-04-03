@@ -69,6 +69,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Widget Usage Guide](#widget-usage-guide)
   - [Continuous Updates](#continuous-updates)
   - [Proxying Requests](#proxying-requests)
+  - [Setting Timeout](#setting-timeout)
   - [Custom CSS Styling](#widget-styling)
   - [Customizing Charts](#customizing-charts)
   - [Language Translations](#language-translations)
@@ -1289,6 +1290,7 @@ All Glance's based widgets require a `hostname`. All other parameters are option
 **`apiVersion`** | `string` |  _Optional_ | Specify an API version, defaults to V `3`. Note that support for older versions is limited
 **`limit`** | `number` |  _Optional_ | For widgets that show a time-series chart, optionally limit the number of data points returned. A higher number will show more historical results, but will take longer to load. A value between 300 - 800 is usually optimal
 
+Note that if auth is configured, requests must be proxied with `useProxy: true`
 ##### Info
 - **CORS**: 🟢 Enabled
 - **Auth**: 🟠 Optional
@@ -1722,6 +1724,21 @@ Alternativley, and more securley, you can set the auth headers on your service t
 ```
 Access-Control-Allow-Origin: https://location-of-dashy/
 Vary: Origin
+```
+
+---
+
+### Setting Timeout
+
+If the endpoint you are requesting data from is slow to respond, you may see a timeout error in the console. This can easily be fixed by specifying the `timeout` property on the offending widget. This should be an integer value, in milliseconds. By default timeout is `2500` ms (2½ seconds).
+
+For example:
+
+```yaml
+- type: gl-current-cpu
+  timeout: 8000
+  options:
+    hostname: https://glances.dns-device.local
 ```
 
 ---
