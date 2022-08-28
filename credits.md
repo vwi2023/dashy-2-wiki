@@ -1,6 +1,6 @@
 # Credits
 
-### Sponsors
+## Sponsors
 <!-- readme: sponsors -start -->
 <table>
 <tr>
@@ -27,7 +27,7 @@
     </td>
     <td align="center">
         <a href="https://github.com/Geolim4">
-            <img src="https://avatars.githubusercontent.com/u/1332071?v=4" width="80;" alt="Geolim4"/>
+            <img src="https://avatars.githubusercontent.com/u/1332071?u=5d84984897f094932c4829583fee19b121f3aab8&v=4" width="80;" alt="Geolim4"/>
             <br />
             <sub><b>Georges.L</b></sub>
         </a>
@@ -134,16 +134,16 @@
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/CynegeticIO">
-            <img src="https://avatars.githubusercontent.com/u/103884082?u=8cc7ce0f78edf630fc8a6ea560a62c6ed249ca41&v=4" width="80;" alt="CynegeticIO"/>
+        <a href="https://github.com/CY0xZ">
+            <img src="https://avatars.githubusercontent.com/u/103884082?v=4" width="80;" alt="CY0xZ"/>
             <br />
-            <sub><b>CynegeticIO</b></sub>
+            <sub><b>CY0xZ</b></sub>
         </a>
     </td></tr>
 </table>
 <!-- readme: sponsors -end -->
 
-### Contributors
+## Contributors
 <!-- readme: contributors -start -->
 <table>
 <tr>
@@ -234,6 +234,13 @@
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/Tracreed">
+            <img src="https://avatars.githubusercontent.com/u/6306365?v=4" width="80;" alt="Tracreed"/>
+            <br />
+            <sub><b>David Alasow</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/remygrandin">
             <img src="https://avatars.githubusercontent.com/u/1934515?v=4" width="80;" alt="remygrandin"/>
             <br />
@@ -267,15 +274,15 @@
             <br />
             <sub><b>ᗪєνιη ᗷυнʟ</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/alexdelprete">
             <img src="https://avatars.githubusercontent.com/u/7027842?v=4" width="80;" alt="alexdelprete"/>
             <br />
             <sub><b>Alessandro Del Prete</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/BOZG">
             <img src="https://avatars.githubusercontent.com/u/6022344?v=4" width="80;" alt="BOZG"/>
@@ -310,15 +317,15 @@
             <br />
             <sub><b>K073l</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/patrickheeney">
             <img src="https://avatars.githubusercontent.com/u/1407228?v=4" width="80;" alt="patrickheeney"/>
             <br />
             <sub><b>Patrick Heeney</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Singebob">
             <img src="https://avatars.githubusercontent.com/u/24290044?v=4" width="80;" alt="Singebob"/>
@@ -346,19 +353,11 @@
             <br />
             <sub><b>Begin</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/skaarj1989">
-            <img src="https://avatars.githubusercontent.com/u/34756939?v=4" width="80;" alt="skaarj1989"/>
-            <br />
-            <sub><b>David</b></sub>
-        </a>
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
 
-
-### Helpful Users
+## Helpful Users
 <!-- readme: EVOTk,shadowking001,UrekD,DylanBeMe,MilesTEG1,lu4t -start -->
 <table>
 <tr>
@@ -407,7 +406,7 @@
 </table>
 <!-- readme: EVOTk,shadowking001,UrekD,DylanBeMe,MilesTEG1,lu4t -end -->
 
-### Bots
+## Bots
 <!-- readme: liss-bot,snyk-bot,netlify,viezly,muse-dev,bots -start -->
 <table>
 <tr>
@@ -458,7 +457,7 @@
 
 > The above section is auto-generated, using [contribute-list](https://github.com/marketplace/actions/contribute-list) by @akhilmhdh.
 
-### Newest Stargazers
+## Newest Stargazers
 
 [![Recent Star Gazers](https://reporoster.com/stars/dark/Lissy93/dashy)](https://github.com/Lissy93/dashy/stargazers)
 
@@ -470,17 +469,20 @@
 
 This app definitely wouldn't have been quite so possible without the making use of the following package and components. Full credit and big kudos to their respective authors, who've done an amazing job in building and maintaining them. For a full breakdown of dependency licenses, please see [Legal](https://github.com/Lissy93/dashy/blob/master/.github/LEGAL.md)
 
-#### Core
+### Core
+
 At it's core, the application uses [**Vue.js**](https://github.com/vuejs/vue), as well as it's services with [**VueX**](https://vuex.vuejs.org/) for state management. Styling is done with [**SCSS**](https://github.com/sass/sass), JavaScript is currently [**Babel**](https://github.com/babel/babel), (but I am in the process of converting to [**TypeScript**](https://github.com/Microsoft/TypeScript)). Linting is done with [**ESLint**](https://github.com/eslint/eslint) and [**Prettier**](https://prettier.io/), both following the [**AirBnB Styleguide**](https://github.com/airbnb/javascript). The config is defined in [**YAML**](https://github.com/yaml/yaml), with a simple [**Node.js**](https://github.com/nodejs/node) server to serve up the static app and the optional API endpoints, and container deployment is done with [**Docker**](https://www.docker.com/).
 
-#### Utilities
+### Utilities
+
 - [`crypto-js`](https://github.com/brix/crypto-js) - Encryption implementations by @evanvosberg and community `MIT`
 - [`axios`](https://github.com/axios/axios) - Promise based HTTP client by @mzabriskie and community `MIT`
 - [`ajv`](https://github.com/ajv-validator/ajv) - JSON schema Validator by @epoberezkin and community `MIT`
 - [`i18n`](https://github.com/kazupon/vue-i18n) - Internationalization plugin by @kazupon and community `MIT`
 - [`frappe-charts`](https://github.com/frappe/charts) - Lightweight charting library by @frappe `MIT`
 
-#### Frontend Components
+### Frontend Components
+
 - [`vue-select`](https://github.com/sagalbot/vue-select) - Dropdown component by @sagalbot `MIT`
 - [`vue-js-modal`](https://github.com/euvl/vue-js-modal) - Modal component by @euvl `MIT`
 - [`v-tooltip`](https://github.com/Akryum/v-tooltip) - Tooltip component by @Akryum `MIT`
@@ -490,13 +492,16 @@ At it's core, the application uses [**Vue.js**](https://github.com/vuejs/vue), a
 - [`vue-toasted`](https://github.com/shakee93/vue-toasted) - Toast notification component by @shakee93 `MIT`
 - [`vue-swatches`](https://github.com/saintplay/vue-swatches) - Color palete picker by @saintplay `MIT`
 
-#### Backup & Sync Server
+### Backup & Sync Server
+
 Although the app is purely frontend, there is an optional cloud sync feature, for off-site backup and restore. This is built as a serverless function on [Cloudflare workers](https://workers.cloudflare.com/) using [KV](https://developers.cloudflare.com/workers/runtime-apis/kv) and [web crypto](https://developers.cloudflare.com/workers/runtime-apis/web-crypto)
 
-#### External Services
+### External Services
+
 The 1-Click deploy demo uses [Play-with-Docker Labs](https://play-with-docker.com/). Code is hosted on [GitHub](https://github.com), Docker images are hosted on [DockerHub](https://hub.docker.com/), and the demos are hosted on [Netlify](https://www.netlify.com/).
 
-#### Actions
+### Actions
+
 This repo makes heavy use of [GitHub actions](https://github.com/features/actions) to run automated workflows. The following base actions are totally awesome, and have been extremely useful. Full credit to their respective authors
 
 - [`action-autotag`](https://github.com/butlerlogic/action-autotag) by @butlerlogic - Tags new versions when app version changes
@@ -518,5 +523,6 @@ This repo makes heavy use of [GitHub actions](https://github.com/features/action
 
 ---
 
-## You!
+## You
+
 Would you like to be listed here? Whatever your skill set, Dashy needs people like you to help support future development. Check out the [Contributing Page](/docs/contributing.md) for ways that you can get involved. Huge thank you to everyone who has already contributed! 💖
