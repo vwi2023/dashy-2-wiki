@@ -43,7 +43,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [System Load History](#load-history-netdata)
   - [Pi Hole Stats](#pi-hole-stats)
   - [Pi Hole Queries](#pi-hole-queries)
-  - [Recent Traffic](#recent-traffic)
+  - [Pi Hole Recent Traffic](#pi-hole-recent-traffic)
   - [Stat Ping Statuses](#stat-ping-statuses)
   - [Synology Download Station](#synology-download-station)
   - [AdGuard Home Block Stats](#adguard-home-block-stats)
@@ -620,7 +620,7 @@ Keep track of recent security advisories and vulnerabilities, with optional filt
 **`minScore`** | `number` |  _Optional_ | If set, will only display results with a CVE score higher than the number specified. Can be a number between `0` and `9.9`. By default, vulnerabilities of all CVE scores are shown
 **`hasExploit`** | `boolean` |  _Optional_ | If set to `true`, will only show results with active exploits. Defaults to `false`
 **`vendorId`** | `number` |  _Optional_ | Only show results from a specific vendor, specified by ID. See [Vendor Search](https://www.cvedetails.com/vendor-search.php) for list of vendors. E.g. `23` (Debian), `26` (Microsoft), `23682` (CloudFlare)
-**`productId`** | `number` |  _Optional_ | Only show results from a specific app or product, specified by ID. See [Product Search](https://www.cvedetails.com/product-search.php) for list of products. E.g. `13534` (Docker), `15913` (NextCloud), `19294` (Portainer), `17908` (ProtonMail)
+**`productId`** | `number` |  _Optional_ | Only show results from a specific app or product, specified by ID. See [Product Search](https://www.cvedetails.com/product-search.php) for list of products. E.g. `28125` (Docker), `34622` (NextCloud), `50211` (Portainer), `95391` (ProtonMail)
 
 #### Example
 
@@ -635,7 +635,7 @@ or
   options:
     sortBy: publish-date
     productId: 28125
-    hasExploit: true
+    hasExploit: false
     minScore: 5
     limit: 30
 ```
@@ -1338,6 +1338,7 @@ Displays the number of queries blocked by [Pi-Hole](https://pi-hole.net/).
 --- | --- | --- | ---
 **`hostname`** | `string` |  Required | The URL to your Pi-Hole instance
 **`hideStatus`** / **`hideChart`** / **`hideInfo`** | `boolean` |  _Optional_ | Optionally hide any of the three parts of the widget
+**`apiKey`** | `string` |  Required | Your Pi-Hole web password. It is **NOT** your pi-hole admin interface or server password. It can be found in `/etc/pihole/setupVars.conf`, and is a 64-character located on the line that starts with `WEBPASSWORD`
 
 #### Example
 
@@ -1345,12 +1346,13 @@ Displays the number of queries blocked by [Pi-Hole](https://pi-hole.net/).
 - type: pi-hole-stats
   options:
     hostname: http://192.168.130.1
+    apiKey: xxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 #### Info
 
 - **CORS**: 🟢 Enabled
-- **Auth**: 🟢 Not Required
+- **Auth**: 🔴 Required
 - **Price**: 🟢 Free
 - **Host**: Self-Hosted (see [GitHub - Pi-hole](https://github.com/pi-hole/pi-hole))
 - **Privacy**: _See [Pi-Hole Privacy Guide](https://pi-hole.net/privacy/)_
@@ -1390,7 +1392,7 @@ Shows top queries that were blocked and allowed by [Pi-Hole](https://pi-hole.net
 
 ---
 
-### Recent Traffic
+### Pi Hole Recent Traffic
 
 Shows number of recent traffic, using allowed and blocked queries from [Pi-Hole](https://pi-hole.net/)
 
@@ -1401,6 +1403,7 @@ Shows number of recent traffic, using allowed and blocked queries from [Pi-Hole]
 **Field** | **Type** | **Required** | **Description**
 --- | --- | --- | ---
 **`hostname`** | `string` |  Required | The URL to your Pi-Hole instance
+**`apiKey`** | `string` |  Required | Your Pi-Hole web password. It is **NOT** your pi-hole admin interface or server password. It can be found in `/etc/pihole/setupVars.conf`, and is a 64-character located on the line that starts with `WEBPASSWORD`
 
 #### Example
 
@@ -1408,12 +1411,13 @@ Shows number of recent traffic, using allowed and blocked queries from [Pi-Hole]
 - type: pi-hole-traffic
   options:
     hostname: https://pi-hole.local
+    apiKey: xxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 #### Info
 
 - **CORS**: 🟢 Enabled
-- **Auth**: 🟢 Not Required
+- **Auth**: 🔴 Required
 - **Price**: 🟢 Free
 - **Host**: Self-Hosted (see [GitHub - Pi-hole](https://github.com/pi-hole/pi-hole))
 - **Privacy**: _See [Pi-Hole Privacy Guide](https://pi-hole.net/privacy/)_
